@@ -1,0 +1,165 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "type": "shell",
+    "tasks": [
+        {
+            "label": "部署",
+            "command": "${workspaceFolder}/tools/deploy.py",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated"
+            },
+            "problemMatcher": [],
+            "dependsOn": [
+                "Slk"
+            ]
+        },
+        {
+            "label": "Debug-运行",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "args": [
+                ".\\tools\\Debug_运行.lua",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": [],
+            "dependsOn": [
+                "Obj"
+            ]
+        },
+        {
+            "label": "Release-运行",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "args": [
+                ".\\tools\\Release_运行.lua",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": [],
+            "dependsOn": [
+                "Slk"
+            ]
+        },
+        {
+            "label": "配置",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "args": [
+                ".\\tools\\配置.lua",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "语法检查",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "args": [
+                ".\\tools\\语法检查.lua",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": {
+                "owner": "lua",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            }
+        },
+        {
+            "label": "Obj",
+            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "args": [
+                "obj",
+                "${workspaceRoot}",
+                "${workspaceRoot}/ObjMap.w3x"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Lni",
+            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "args": [
+                "lni",
+                "${workspaceRoot}/ObjMap.w3x",
+                "${workspaceRoot}"
+            ],
+            "problemMatcher": [],
+            "dependsOn": [
+                "Obj"
+            ]
+        },
+        {
+            "label": "Slk",
+            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "args": [
+                "slk",
+                "${workspaceRoot}",
+                "${workspaceRoot}/releases/SlkMap.w3x"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "日志",
+            "command": "notepad ${workspaceRoot}/tools/w3x2lni/log/report.log",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "args": [],
+            "problemMatcher": []
+        },
+        {
+            "label": "🔍",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe -e \"package.cpath=package.cpath..';'..[[${workspaceRoot}/tools/?.dll]]\"",
+            "args": [
+                ".\\tools\\语法检查.lua",
+                "${workspaceRoot}",
+                "--watch"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "lua",
+                "fileLocation": [
+                    "absolute"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "\\[Watch\\] File change detected\\.",
+                    "endsPattern": "\\[Watch\\] Complete\\."
+                }
+            }
+        }
+    ]
+}

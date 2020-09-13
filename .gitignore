@@ -1,0 +1,12 @@
+.vscode/bookmarks.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+tools/w3x2lni/log
+w3x2lni/*
+
+*?.w3x
+bak/*
+temp/*
