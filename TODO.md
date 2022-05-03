@@ -40,7 +40,7 @@
 ## Sogat v3.33
 
 - [x] Added a new item "Scepter of Mastery" with "Banish" to increase spell damage on single targets.
-- Added "Storm", "Earth" and "Fire" as alternative models for "Sorceress", "Tauren Chieftain" and "Blood Mage" (selection: one-click 1 of the 3 heroes then press the down-arrow on keyboard).
+- [x] Added "Storm", "Earth" and "Fire" as alternative models for "Sorceress", "Tauren Chieftain" and "Blood Mage" (selection: one-click 1 of the 3 heroes then press the down-arrow on keyboard).
 - [x] Fixed bug: Level 20 Ability is not added to "Druid of the Clow" in "Bear Form".
 
 ## Sogat v3.32
