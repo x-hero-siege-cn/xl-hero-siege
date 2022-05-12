@@ -6,14 +6,17 @@
     "tasks": [
         {
             "label": "部署",
-            "type": "shell",
-            "command": "python ./tools/deploy.py",
+            "type": "process",
+            "command": "python",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
-                "focus": true,
-                "panel": "dedicated"
+                "focus": false,
+                "panel": "new"
             },
+            "args": [
+                "${workspaceRoot}/tools/deploy.py"
+            ],
             "problemMatcher": [],
             "dependsOn": [
                 "Slk"
@@ -21,12 +24,18 @@
         },
         {
             "label": "运行(Obj)",
-            "type":"shell",
-            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "type": "process",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
                 ".\\tools\\obj_run.lua",
                 "${workspaceRoot}"
             ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
             "problemMatcher": [],
             "dependsOn": [
                 "Obj"
@@ -34,11 +43,18 @@
         },
         {
             "label": "运行(Slk)",
-            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "type": "process",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
                 ".\\tools\\slk_run.lua",
                 "${workspaceRoot}"
             ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
             "problemMatcher": [],
             "dependsOn": [
                 "Slk"
@@ -46,8 +62,8 @@
         },
         {
             "label": "配置",
-            "type":"process",
-            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "type": "process",
+            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
                 ".\\tools\\配置.lua",
                 "${workspaceRoot}"
@@ -55,37 +71,15 @@
             "presentation": {
                 "echo": false,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "shared"
             },
             "problemMatcher": []
-            
-        },
-        {
-            "label": "语法检查",
-            "type":"process",
-            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
-            "args": [
-                ".\\tools\\check.lua",
-                "${workspaceRoot}"
-            ],
-            "problemMatcher": {
-                "owner": "lua",
-                "fileLocation": [
-                    "absolute"
-                ],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "message": 3
-                }
-            }
         },
         {
             "label": "Obj",
-            "type":"process",
-            "command": "./tools/w3x2lni/w2l.exe",
+            "type": "process",
+            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -101,12 +95,12 @@
         },
         {
             "label": "Lni",
-            "type":"process",
-            "command": "./tools/w3x2lni/w2l.exe",
+            "type": "process",
+            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "shared"
             },
             "args": [
@@ -121,12 +115,12 @@
         },
         {
             "label": "Slk",
-            "type":"process",
-            "command": "./tools/w3x2lni/w2l.exe",
+            "type": "process",
+            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "shared"
             },
             "args": [
@@ -138,43 +132,16 @@
         },
         {
             "label": "日志",
-            "type":"process",
-            "command": "notepad3 ./tools/w3x2lni/log/report.log",
+            "type": "shell",
+            "command": "notepad3 ${workspaceRoot}/tools/w3x2lni/log/report.log",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "shared"
             },
             "args": [],
             "problemMatcher": []
-        },
-        {
-            "label": "🔍",
-            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe -e \"package.cpath=package.cpath..';'..[[./tools/?.dll]]\"",
-            "args": [
-                ".\\tools\\check.lua",
-                "${workspaceRoot}",
-                "--watch"
-            ],
-            "isBackground": true,
-            "problemMatcher": {
-                "owner": "lua",
-                "fileLocation": [
-                    "absolute"
-                ],
-                "pattern": {
-                    "regexp": "^(.*):(\\d+):\\s+(.*)$",
-                    "file": 1,
-                    "line": 2,
-                    "message": 3
-                },
-                "background": {
-                    "activeOnStart": true,
-                    "beginsPattern": "\\[Watch\\] File change detected\\.",
-                    "endsPattern": "\\[Watch\\] Complete\\."
-                }
-            }
         }
     ]
 }
