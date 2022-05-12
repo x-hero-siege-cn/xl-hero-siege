@@ -13233,7 +13233,7 @@ function main2 takes nothing returns nothing
 	call TriggerRegisterPlayerEventEndCinematic(gg_trg_CheckLeak, Player(0))
 	call TriggerAddAction(gg_trg_CheckLeak, function Trig_CheckLeak_Actions)
 
-	// call DisableTrigger(gg_trg_ControlEnemy)
+	call DisableTrigger(gg_trg_ControlEnemy)
 	call TriggerRegisterPlayerChatEvent(gg_trg_ControlEnemy, Player(0), "-ce", true)
 	call TriggerAddAction(gg_trg_ControlEnemy, function Trig_ControlEnemy_Actions)
 
