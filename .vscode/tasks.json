@@ -6,7 +6,8 @@
     "tasks": [
         {
             "label": "部署",
-            "command": "${workspaceFolder}/tools/deploy.py",
+            "type": "shell",
+            "command": "python ./tools/deploy.py",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
@@ -19,10 +20,11 @@
             ]
         },
         {
-            "label": "Debug-运行",
-            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "label": "运行(Obj)",
+            "type":"shell",
+            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
-                ".\\tools\\Debug_运行.lua",
+                ".\\tools\\obj_run.lua",
                 "${workspaceRoot}"
             ],
             "problemMatcher": [],
@@ -31,10 +33,10 @@
             ]
         },
         {
-            "label": "Release-运行",
-            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "label": "运行(Slk)",
+            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
-                ".\\tools\\Release_运行.lua",
+                ".\\tools\\slk_run.lua",
                 "${workspaceRoot}"
             ],
             "problemMatcher": [],
@@ -44,18 +46,27 @@
         },
         {
             "label": "配置",
-            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "type":"process",
+            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
                 ".\\tools\\配置.lua",
                 "${workspaceRoot}"
             ],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
             "problemMatcher": []
+            
         },
         {
             "label": "语法检查",
-            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
+            "type":"process",
+            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
-                ".\\tools\\语法检查.lua",
+                ".\\tools\\check.lua",
                 "${workspaceRoot}"
             ],
             "problemMatcher": {
@@ -73,11 +84,12 @@
         },
         {
             "label": "Obj",
-            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
+            "type":"process",
+            "command": "./tools/w3x2lni/w2l.exe",
             "presentation": {
-                "echo": false,
+                "echo": true,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "shared"
             },
             "args": [
@@ -89,9 +101,10 @@
         },
         {
             "label": "Lni",
-            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
+            "type":"process",
+            "command": "./tools/w3x2lni/w2l.exe",
             "presentation": {
-                "echo": false,
+                "echo": true,
                 "reveal": "always",
                 "focus": true,
                 "panel": "shared"
@@ -108,9 +121,10 @@
         },
         {
             "label": "Slk",
-            "command": "${workspaceRoot}/tools/w3x2lni/w2l.exe",
+            "type":"process",
+            "command": "./tools/w3x2lni/w2l.exe",
             "presentation": {
-                "echo": false,
+                "echo": true,
                 "reveal": "always",
                 "focus": true,
                 "panel": "shared"
@@ -124,7 +138,8 @@
         },
         {
             "label": "日志",
-            "command": "notepad ${workspaceRoot}/tools/w3x2lni/log/report.log",
+            "type":"process",
+            "command": "notepad3 ./tools/w3x2lni/log/report.log",
             "presentation": {
                 "echo": false,
                 "reveal": "always",
@@ -136,9 +151,9 @@
         },
         {
             "label": "🔍",
-            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe -e \"package.cpath=package.cpath..';'..[[${workspaceRoot}/tools/?.dll]]\"",
+            "command": "./tools/w3x2lni/bin/w3x2lni-lua.exe -e \"package.cpath=package.cpath..';'..[[./tools/?.dll]]\"",
             "args": [
-                ".\\tools\\语法检查.lua",
+                ".\\tools\\check.lua",
                 "${workspaceRoot}",
                 "--watch"
             ],
