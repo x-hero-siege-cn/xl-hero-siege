@@ -1814,9 +1814,6 @@ endfunction
 
 function Trig_OptionsGame_Actions takes nothing returns nothing
 	call DisableTrigger(GetTriggeringTrigger())
-	if( (GetBooleanAnd((udg_PlayerCount == 1), (GetPlayerName(Player(0)) == "WorldEdit"))) ) then // INLINED!!
-		call CustomVictoryBJ(Player(0), false, false)
-	endif
 	set udg_MusicPoint = 1
 	call TriggerExecute(gg_trg_Music)
 	set bj_wantDestroyGroup = true
