@@ -1567,18 +1567,14 @@ function Trig_Heroes_Actions takes nothing returns nothing
 	set bj_forLoopAIndexEnd = 20
 	loop
 	exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-		set tempPoint = PolarProjectionBJ(udg_TempPoint, 700.00, 0)
-		call CreateNUnitsAtLocFacingLocBJ(1, udg_DarkUnit[bj_forLoopAIndex], Player(11), tempPoint, udg_TempPoint)
-		call RemoveLocation(tempPoint)
+		call CreateNUnitsAtLoc(1, udg_DarkUnit[bj_forLoopAIndex], Player(11), udg_TempPoint, 0.00)
 		set bj_forLoopAIndex = bj_forLoopAIndex + 1
 	endloop
 	set bj_forLoopAIndex = 1
 	set bj_forLoopAIndexEnd = 4
 	loop
 	exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-		set tempPoint = PolarProjectionBJ(udg_TempPoint, 700.00, 0)
-		call CreateNUnitsAtLocFacingLocBJ(1, udg_DarkHero[bj_forLoopAIndex], Player(11), tempPoint, udg_TempPoint)
-		call RemoveLocation(tempPoint)
+		call CreateNUnitsAtLoc(1, udg_DarkHero[bj_forLoopAIndex], Player(11), udg_TempPoint, 0.00)
 		set bj_forLoopAIndex = bj_forLoopAIndex + 1
 	endloop
 	call RemoveLocation(udg_TempPoint)
@@ -2369,7 +2365,7 @@ function Trig_ModeExtreme_Actions takes nothing returns nothing
 	set udg_DarkHeroAbility[2]='AOhw'
 	set udg_DarkHeroAbility[3]='AEmb'
 	set udg_DarkHeroAbility[4]='A02R'
-	set udg_DarkHeroAbility[5]='A018'
+	set udg_DarkHeroAbility[5]='AUau'
 	set udg_DarkHeroAbility[6]='AOr2'
 	set udg_DarkHeroAbility[7]='A02Q'
 	set udg_DarkHeroAbility[8]='A02X'
