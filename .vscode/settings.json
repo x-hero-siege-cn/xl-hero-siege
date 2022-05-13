@@ -6,5 +6,21 @@
     "Lua.workspace.ignoreDir": [
         "tools/w3x2lni"
     ],
+    "search.exclude": {
+        "**/tools/w3x2lni": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/tools/w3x2lni/**": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/tools/w3x2lni": true
+    },
     "Lua.workspace.ignoreSubmodules": false,
 }
