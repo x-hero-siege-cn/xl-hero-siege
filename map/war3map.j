@@ -13825,7 +13825,7 @@ endfunction
 
 function config takes nothing returns nothing
 	call SetMapName("|cffb700ffXL Hero Siege|r")
-	call SetMapDescription("更好的X Hero Siege 3.33")
+	call SetMapDescription("A more balanced version for X Hero Siege")
 	call SetPlayers(12)
 	call SetTeams(12)
 	call SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
