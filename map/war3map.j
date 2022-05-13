@@ -1562,22 +1562,7 @@ function Trig_Heroes_Func014002 takes nothing returns nothing
 endfunction
 
 function Trig_Heroes_Actions takes nothing returns nothing
-	set udg_TempPoint = GetRectCenter(gg_rct_Special_A8)
-	set bj_forLoopAIndex = 1
-	set bj_forLoopAIndexEnd = 20
-	loop
-	exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-		call CreateNUnitsAtLoc(1, udg_DarkUnit[bj_forLoopAIndex], Player(11), udg_TempPoint, 0.00)
-		set bj_forLoopAIndex = bj_forLoopAIndex + 1
-	endloop
-	set bj_forLoopAIndex = 1
-	set bj_forLoopAIndexEnd = 4
-	loop
-	exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-		call CreateNUnitsAtLoc(1, udg_DarkHero[bj_forLoopAIndex], Player(11), udg_TempPoint, 0.00)
-		set bj_forLoopAIndex = bj_forLoopAIndex + 1
-	endloop
-	call RemoveLocation(udg_TempPoint)
+	set bj_wantDestroyGroup = true
 	// 选择英雄
 	set udg_TempPoint = GetRectCenter(gg_rct_SelectArea)
 	set bj_forLoopAIndex = 1
