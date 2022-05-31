@@ -15,21 +15,22 @@
 - [YDWE](http://www.ydwe.net/download.html)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Python3](https://www.python.org/downloads/)
-- w3xlni(**项目已内置目前最新版2.7.2**)
+- [w3x2lni](https://github.com/LengSword/xl-hero-siege/releases/download/XL-v1.0.1/w3x2lni.7z)
 
 ### 具体步骤
 
 1. 克隆此项目到你的本地(或下载项目的压缩包)
 2. 安装YDWE(已安装可跳过)
-3. 安装VSCode(已安装可跳过)
-4. 使用VSCode打开此项目
-5. 安装VSCode扩展 `jass.jass`
-6. 已配置好各项`运行任务`
+3. 下载 `w3x2lni` 工具, 在 `tools` 目录下放置 `w3x2lni` 工具
+4. 安装VSCode(已安装可跳过)
+5. 使用VSCode打开此项目
+6. 安装VSCode扩展 `jass.jass`
+7. 已配置好各项`运行任务`
    1. 调试运行地图
-      - 运行`Release-运行`/`Debug-运行`任务
-   2. 打包成品地图 `X_Hero_Siege_{当前版本号}.w3x`
-      - 运行`部署`任务
-7. 编辑触发请修改 `war3map.j` 文件, 改物编数据则修改 `table` 目录下的文件
+      - 运行 `运行(Slk)` 或 `运行(Obj)` 任务
+   2. 打包成品地图 `XL_Hero_Siege_{当前版本号}.w3x`
+      - 运行 `部署` 任务
+8. 编辑触发请修改 `war3map.j` 文件, 改物编数据则修改 `table` 目录下的文件
 
 ## 项目基本结构
 
@@ -50,7 +51,8 @@ XL Hero Siege
  ├── releases               // 地图部署发布目录
  ├── resource               // 资源目录
  ├── table                  // 数据相关文件(物编/导入/地图信息等)
- └── tools                  // 工具目录(无需变动)
+ └── tools                  // 工具目录
+ │   └── w3x2lni            // w3x2lni 工具目录
 ```
 
 ## 捐赠支持
