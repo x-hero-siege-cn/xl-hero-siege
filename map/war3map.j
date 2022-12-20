@@ -9802,7 +9802,7 @@ function Trig_Level20Abilities_Actions takes nothing returns nothing
 	endif
 	if( (GetUnitTypeId(GetTriggerUnit()) == 'Ewar') ) then // INLINED!!
 		call UnitAddAbility(GetTriggerUnit(), 'A023')
-		call UnitAddAbility(GetTriggerUnit(), 'Apiv')
+		// call UnitAddAbility(GetTriggerUnit(), 'Apiv')
 	endif
 	if( (GetBooleanOr((GetUnitTypeId(GetTriggerUnit()) == 'Edem'), (GetUnitTypeId(GetTriggerUnit()) == 'Edmm'))) ) then // INLINED!!
 		call UnitAddAbility(GetTriggerUnit(), 'A02K')
