@@ -427,6 +427,7 @@ globals
 	trigger gg_trg_RangerHeal = null
 	trigger gg_trg_OpenAllWays = null
 	trigger gg_trg_CloseAllWays = null
+	trigger gg_trg_BuyLevels = null
 	unit udg_Castle = null
 	unit udg_Castle2 = null
 	unit udg_unit03 = null
@@ -8635,6 +8636,31 @@ function Trig_BuyTomes_Actions takes nothing returns nothing
 	//call ConditionalTriggerExecute(GetTriggeringTrigger())
 endfunction
 
+function Trig_BuyLevels_Conditions takes nothing returns boolean
+	if(GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) < 25000) then
+		return false
+	endif
+	if(GetHeroLevel(udg_Heroes[GetConvertedPlayerId(GetTriggerPlayer())]) >= 30) then
+		return false
+	endif
+	return true
+endfunction
+
+function Trig_BuyLevels_Actions takes nothing returns nothing
+	local integer buyCount = IMinBJ(GetPlayerState(GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD) / 25000, 29)
+	call AddSpecialEffectTargetUnitBJ("origin", udg_Heroes[GetConvertedPlayerId(GetTriggerPlayer())], "Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl")
+	call DestroyEffect(bj_lastCreatedEffect)
+	call UnitAddItemByIdSwapped('tpox',	udg_Heroes[GetConvertedPlayerId(GetTriggerPlayer())])
+	set bj_forLoopAIndex = 1
+	set bj_forLoopAIndexEnd = buyCount
+	loop
+	exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+		call UnitAddItemByIdSwapped('tkno',	udg_Heroes[GetConvertedPlayerId(GetTriggerPlayer())])
+		set bj_forLoopAIndex = bj_forLoopAIndex + 1
+	endloop
+	call AdjustPlayerStateBJ(R2I(-25000.00 * I2R(buyCount)), GetTriggerPlayer(), PLAYER_STATE_RESOURCE_GOLD)
+endfunction
+
 function Trig_Repick_Func008Func001Func002Func002001 takes nothing returns boolean
 	return(udg_ModeEasy == true)
 endfunction
@@ -13023,6 +13049,16 @@ function main2 takes nothing returns nothing
 	call TriggerRegisterPlayerChatEvent(udg_trigger136, Player(7), "-bt", true)
 	call TriggerAddCondition(udg_trigger136, Condition(function Trig_BuyTomes_Conditions))
 	call TriggerAddAction(udg_trigger136, function Trig_BuyTomes_Actions)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(0), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(1), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(2), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(3), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(4), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(5), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(6), "-bl", true)
+	call TriggerRegisterPlayerChatEvent(gg_trg_BuyLevels, Player(7), "-bl", true)
+	call TriggerAddCondition(gg_trg_BuyLevels, Condition(function Trig_BuyLevels_Conditions))
+	call TriggerAddAction(gg_trg_BuyLevels, function Trig_BuyLevels_Actions)
 	call TriggerRegisterPlayerChatEvent(gg_trg_Repick, Player(0), "-repick", true)
 	call TriggerRegisterPlayerChatEvent(gg_trg_Repick, Player(1), "-repick", true)
 	call TriggerRegisterPlayerChatEvent(gg_trg_Repick, Player(2), "-repick", true)
@@ -13434,6 +13470,7 @@ function InitTrig_init takes nothing returns nothing
 	set gg_trg_RangerHeal = CreateTrigger()
 	set gg_trg_OpenAllWays = CreateTrigger()
 	set gg_trg_CloseAllWays = CreateTrigger()
+	set gg_trg_BuyLevels = CreateTrigger()
 	set gg_trg_CheckLeak = CreateTrigger()
 	set gg_trg_ControlEnemy = CreateTrigger()
 	set gg_trg_GiveDebugItems = CreateTrigger()
