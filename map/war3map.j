@@ -1647,7 +1647,7 @@ function Trig_Quests_Actions takes nothing returns nothing
 	set udg_quests01[7]= bj_lastCreatedQuest
 	call CreateQuestBJ(2, "进阶玩法", "TRIGSTR_002", "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 	set udg_quests01[8]= bj_lastCreatedQuest
-	call CreateQuestItemBJ(udg_quests01[8], "地图已开源, 项目链接: https://gitee.com/LengSword/xl-hero-siege")
+	call CreateQuestItemBJ(udg_quests01[8], "地图已开源, 项目链接: https://github.com/LengSword/xl-hero-siege")
 	call CreateQuestItemBJ(udg_quests01[8], "作者：Sogat, LengSword")
 	call CreateQuestItemBJ(udg_quests01[8], "汉化：猿飛◎木葉丸")
 	call DestroyTrigger(GetTriggeringTrigger())
