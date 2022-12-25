@@ -5,8 +5,6 @@
 .history/
 
 tools/w3x2lni/*
-w3x2lni/*
 
-*?.w3x
-bak/*
-temp/*
+*.w3x
+!/.w3x
