@@ -12,7 +12,9 @@ if not version:
 
 os.chdir('./releases')
 
-map_fullname = f'XL_Hero_Siege_{version}.w3x'
+map_name = 'XL_Hero_Siege'
+
+map_fullname = f'{map_name}_{version}.w3x'
 original_mapname = 'SlkMap.w3x'
 
 if os.path.exists(map_fullname):
@@ -27,7 +29,10 @@ os.chdir('../table')
 with open('w3i.ini', encoding='utf-8', mode='r') as f:
     w3i_ini = f.readlines()
 
-w3i_ini[4] = '地图名称 = "XL Hero Siege v{version}"\n'.format(version=version)
+w3i_ini[4] = '地图名称 = "{map_name} v{version}"\n'.format(
+    map_name=map_name,
+    version=version,
+)
 
 with open('w3i.ini', encoding='utf-8', mode='w') as f:
     f.writelines(w3i_ini)
