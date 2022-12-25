@@ -30,7 +30,7 @@ with open('w3i.ini', encoding='utf-8', mode='r') as f:
     w3i_ini = f.readlines()
 
 w3i_ini[4] = '地图名称 = "{map_name} v{version}"\n'.format(
-    map_name=map_name,
+    map_name=map_name.replace('_', ' '),
     version=version,
 )
 
