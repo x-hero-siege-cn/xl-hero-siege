@@ -5,5 +5,5 @@ if not ydwe then
 end
 print('YDWE:', ydwe:string())
 subprocess.spawn {
-    ydwe / 'bin' / 'ydweconfig.exe'
+    ydwe / 'ydweconfig.exe'
 }

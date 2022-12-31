@@ -32,7 +32,7 @@ end
 ]]
 
 subprocess.spawn {
-    ydwe / 'ydwe.exe',
-    '-war3',
+    ydwe / 'ydweconfig.exe',
+    '-launchwar3',
     '-loadfile', root / 'releases' / 'SlkMap.w3x',
 }

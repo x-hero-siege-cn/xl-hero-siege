@@ -23,30 +23,11 @@
             ]
         },
         {
-            "label": "运行(Obj)",
+            "label": "运行",
             "type": "process",
             "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
-                ".\\tools\\obj_run.lua",
-                "${workspaceRoot}"
-            ],
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared"
-            },
-            "problemMatcher": [],
-            "dependsOn": [
-                "Obj"
-            ]
-        },
-        {
-            "label": "运行(Slk)",
-            "type": "process",
-            "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
-            "args": [
-                ".\\tools\\slk_run.lua",
+                ".\\tools\\run.lua",
                 "${workspaceRoot}"
             ],
             "presentation": {
@@ -65,7 +46,7 @@
             "type": "process",
             "command": "${workspaceRoot}/tools/w3x2lni/bin/w3x2lni-lua.exe",
             "args": [
-                ".\\tools\\配置.lua",
+                ".\\tools\\config.lua",
                 "${workspaceRoot}"
             ],
             "presentation": {
