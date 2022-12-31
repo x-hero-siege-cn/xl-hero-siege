@@ -4,8 +4,8 @@ import re
 version = ''
 
 with open('CHANGELOG.md', encoding='utf-8', mode='r') as f:
-    first_line = f.readline()
-    version = re.match(r'## v(.*)', first_line).group(1)
+    changelog = f.read()
+    version = re.search(r'## v(.*)', changelog).group(1)
 
 if not version:
     exit()
